@@ -1,0 +1,17 @@
+.toy-item {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  margin: 25px;
+}
+
+.toy-item img{
+  max-width: 350px;
+  height: 100%;
+  
+}
+
+.text-container {
+  display: flex;
+  justify-content: space-around
+}

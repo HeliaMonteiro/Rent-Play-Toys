@@ -1,0 +1,12 @@
+.footer-container {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto;
+  width: 100%;
+  height: 50px;
+  border: 1px solid;
+}
+
+.footer-container a{
+  align-self: center;
+}
