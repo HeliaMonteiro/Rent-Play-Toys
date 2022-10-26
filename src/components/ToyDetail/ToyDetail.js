@@ -5,10 +5,43 @@ import './style.css'
 
 const ToyDetail = () => {
   const state = useLocation()
+
+  const token = localStorage.getItem('bearer')
+  const userId = localStorage.getItem('userId')
+  console.log(token)
+  const {id, age, brand, category, description, image, name, price, status} = state.state
+
+  console.log(id)
+
+  const rentToy = async () => {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${token}`);
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      data: {
+        user: {
+          id: userId
+        },
+        toy: {
+          id
+        }
+      }
+    });
+
+    var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+    };
+
+    await fetch(`${process.env.REACT_APP_API_HOST}/api/rents`, requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+  }
   
-  const {age, brand, category, description, image, name, price} = state.state
-
-
   return (
     <div>
       <Header />
@@ -21,16 +54,18 @@ const ToyDetail = () => {
           </div>
           <p>{category}</p>
         </div>
-        <div className="rent-toy-container">
+        { status && (
+          <div className="rent-toy-container">
           <h2>How many days of rent?</h2>
-          <input type="radio" name="" id="" />
+          <input type="radio" name="option1" id="" />
           <label htmlFor="">7 days</label>
-          <input type="radio" name="" id="" />
+          <input type="radio" name="option2" id="" />
           <label htmlFor="">14 days</label>
-          <input type="radio" name="" id="" />
+          <input type="radio" name="option3" id="" />
           <label htmlFor="">21 days</label>
-          <button>Rent toy</button>
+          <button onClick={rentToy}>Rent toy</button>
         </div>
+        )}
       </div>
       <div className="description">
         <h2>Description:</h2>

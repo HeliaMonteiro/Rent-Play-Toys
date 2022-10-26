@@ -32,6 +32,7 @@ export default function Login() {
     .then(response => response.json())
     .then(result => {
       localStorage.setItem('bearer', result.jwt)
+      localStorage.setItem('userId', result.user.id)
       setToken(result.jwt)
       navigate('/')
     })

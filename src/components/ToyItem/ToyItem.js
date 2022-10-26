@@ -12,7 +12,7 @@ const ToyItem = ({props}) => {
   const goToToyDetails = (id) => {
     navigate(`/toy/${id}`, {
       state: {
-        age, brand, category, description, name, price, status, image
+        age, brand, category, description, name, price, status, image, id: props.id
       }
     })
   }

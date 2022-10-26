@@ -69,6 +69,7 @@ import './style.css'
           .then(response => response.json())
           .then(result => {
             localStorage.setItem('bearer', result.jwt)
+            localStorage.setItem('userId', result.user.id)
             navigate('/')
           })
           .catch(error => console.log('error', error));
