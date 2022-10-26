@@ -2,7 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import './style.css'
 
-const Header = () => {
+const Header = ({token = undefined}) => {
+  let headerToken = token ? token : localStorage.getItem('bearer')
+
+  const logout = () => {
+    localStorage.removeItem('bearer')
+    headerToken = ''
+  }
+
   return (
     <div className='header-container'>
       <Link to="/">
@@ -22,13 +29,19 @@ const Header = () => {
       <button>Search</button>
       </div>
 
-      <div className='header-buttons'>
+        { headerToken ? (
+          <div className='header-buttons'>
+          <button onClick={logout}>Logout</button>
+          </div>
+        ) : (
+          <div className='header-buttons'>
+          <Link to="/signUp"><button>Sign up</button>
+          </Link>
+          <Link to="/login"><button>Log in</button>
+          </Link>
+          </div>
+        )}
 
-        <Link to="/signUp"><button>Sign up</button>
-        </Link>
-        <Link to="/login"><button>Log in</button>
-        </Link>
-      </div>
 
     </div>
   );

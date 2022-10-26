@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import './style.css'
 
 
  
- export default function SignUp({ setToken }) {
+ export default function SignUp() {
     const [username, setUsername] = useState();
     const [first_name, setFirstName] = useState();
     const [last_name, setLastName] = useState();
@@ -15,7 +16,7 @@ import './style.css'
     const [phone, setPhone] = useState();
     const [result, setResult] = useState()
 
-    console.log(result)
+    const navigate = useNavigate()
  
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -42,16 +43,36 @@ import './style.css'
       redirect: 'follow'
     };
 
-    console.log(requestOptions)
-
     await fetch(`${process.env.REACT_APP_API_HOST}/api/users`, requestOptions)
     .then(response => response.json())
     .then(result => setResult(result))
     .catch(error => console.log('error', error));
 
-    console.log(result)
-    // setToken(token);
-     
+     if (result) {
+        myHeaders = new Headers();
+        myHeaders.append("Authorization", `Bearer ${process.env.REACT_APP_BEARER}`);
+        myHeaders.append("Content-Type", "application/json");
+        
+        raw = JSON.stringify({
+          identifier: email,
+          password
+        });
+        
+        requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          body: raw,
+          redirect: 'follow'
+        };
+
+        await fetch(`${process.env.REACT_APP_API_HOST}/api/auth/local`, requestOptions)
+          .then(response => response.json())
+          .then(result => {
+            localStorage.setItem('bearer', result.jwt)
+            navigate('/')
+          })
+          .catch(error => console.log('error', error));
+     }
    }
 
  

@@ -1,37 +1,46 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import './style.css'
 
-
-
-async function loginUser(credentials) {
- return fetch('http://localhost:8080/login', {
-   method: 'POST',
-   headers: {
-     'Content-Type': 'application/json'
-   },
-   body: JSON.stringify(credentials)
- })
-   .then(data => data.json())
-}
-
-export default function Login({ setToken }) {
+export default function Login() {
+  const navigate = useNavigate()
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [token, setToken] = useState()
 
   const handleSubmit = async e => {
-    e.preventDefault();
-    const token = await loginUser({
-     email,
-      password
+    e.preventDefault()
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${process.env.REACT_APP_BEARER}`);
+    myHeaders.append("Content-Type", "application/json");
+
+    let raw = JSON.stringify({
+    identifier: email,
+    password
     });
-    setToken(token);
+
+    let requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+    };
+
+    await fetch(`${process.env.REACT_APP_API_HOST}/api/auth/local`, requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      localStorage.setItem('bearer', result.jwt)
+      setToken(result.jwt)
+      navigate('/')
+    })
+    .catch(error => console.log('error', error));
   }
 
   return(
     <div>
-      <Header />
+      <Header token={token}/>
       <div className="login-wrapper">
         <h1>Log In</h1>
         <form onSubmit={handleSubmit}>
