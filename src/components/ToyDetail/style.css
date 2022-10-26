@@ -1,0 +1,17 @@
+.toy-detail-container {
+  margin-top: 40px;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+.toy-detail-container img{
+  width: 200px;
+}
+
+.rent-toy-container {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
