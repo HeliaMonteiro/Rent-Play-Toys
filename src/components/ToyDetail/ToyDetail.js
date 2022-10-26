@@ -47,21 +47,21 @@ const ToyDetail = () => {
       <Header />
       <div className="toy-detail-container">
         <div>
-          <img src={process.env.REACT_APP_API_HOST + image.url} alt="" />
+          <img src={image} alt="" />
           <div>
             <p>{brand}</p>
             <p>{name}</p>
           </div>
           <p>{category}</p>
         </div>
-        { status && (
+        { status && token && (
           <div className="rent-toy-container">
           <h2>How many days of rent?</h2>
-          <input type="radio" name="option1" id="" />
+          <input type="radio" name="rent-option" value="7" id="7" />
           <label htmlFor="">7 days</label>
-          <input type="radio" name="option2" id="" />
+          <input type="radio" name="rent-option" value="14" id="14" />
           <label htmlFor="">14 days</label>
-          <input type="radio" name="option3" id="" />
+          <input type="radio" name="rent-option" value="21" id="21" />
           <label htmlFor="">21 days</label>
           <button onClick={rentToy}>Rent toy</button>
         </div>

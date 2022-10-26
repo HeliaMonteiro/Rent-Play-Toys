@@ -19,3 +19,9 @@
   float: left;
   text-align: left;
 }
+
+.price {
+  color: #50ba98;
+  font-size: 1.5rem;
+
+}

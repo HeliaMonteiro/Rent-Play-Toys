@@ -5,9 +5,8 @@ import './style.css'
 
 const ToyItem = ({props}) => {
   const navigate = useNavigate()
-  const {age, brand, category, description, name, price, status} = props.attributes
+  const {age, brand, category, description, name, price, status, image} = props.attributes
 
-  const image = props.attributes.image.data[0].attributes
 
   const goToToyDetails = (id) => {
     navigate(`/toy/${id}`, {
@@ -19,13 +18,13 @@ const ToyItem = ({props}) => {
 
   return (
     <div className='toy-item' key={props.id} onClick={() => goToToyDetails(props.id)}>
-      <img src={process.env.REACT_APP_API_HOST + image.url} alt="" />
+      <img src={image} alt="" />
       <div className='text-container'>
         <p>{brand}</p>
         <p>{name}</p>
       </div>
       <div className='text-container'>
-        <p>From ${price} per week</p>
+        <p className='price'>From ${price} per week</p>
       </div>
     </div>
   );

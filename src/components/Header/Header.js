@@ -1,22 +1,23 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './style.css'
 
 const Header = ({token = undefined}) => {
   let headerToken = token ? token : localStorage.getItem('bearer')
+  const navigate = useNavigate()
 
   const logout = () => {
     localStorage.removeItem('bearer')
     headerToken = ''
+    navigate('/')
   }
 
   return (
     <div className='header-container'>
       <Link to="/">
-      <p className='header-logo'>Logo</p>
+     <img src="https://i.postimg.cc/T1yDzGXS/20221026-204424-0000.png" alt="" />
       </Link>
-      <p className='header-title'>Rent & Play Toys</p>
-
+     
       <div className='nav-container'>
       <a href="categories">Categories</a>
       <a href="age">Age</a>
