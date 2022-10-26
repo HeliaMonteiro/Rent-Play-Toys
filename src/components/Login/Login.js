@@ -15,13 +15,13 @@ async function loginUser(credentials) {
 }
 
 export default function Login({ setToken }) {
-  const [username, setUserName] = useState();
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
   const handleSubmit = async e => {
     e.preventDefault();
     const token = await loginUser({
-      username,
+     email,
       password
     });
     setToken(token);
@@ -31,18 +31,18 @@ export default function Login({ setToken }) {
     <div>
       <Header />
       <div className="login-wrapper">
-        <h1>Please Log In</h1>
+        <h1>Log In</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            <p>Username</p>
-            <input type="text" onChange={e => setUserName(e.target.value)} />
+            <p>Email:</p>
+            <input type="email" onChange={e => setEmail(e.target.value)} />
           </label>
           <label>
             <p>Password</p>
             <input type="password" onChange={e => setPassword(e.target.value)} />
           </label>
           <div>
-            <button type="submit">Submit</button>
+            <button type="submit">LogIn</button>
           </div>
         </form>
       </div>
