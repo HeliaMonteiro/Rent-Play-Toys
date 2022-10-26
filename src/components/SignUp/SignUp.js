@@ -1,45 +1,70 @@
 import React, { useState } from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+import './style.css'
 
-async function loginUser(credentials) {
-  return fetch('http://localhost:8080/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(credentials)
-  })
-    .then(data => data.json())
- }
+
  
  export default function SignUp({ setToken }) {
-   const [first_name, setFirstName] = useState();
-   const [last_name, setLastName] = useState();
-   const [email, setEmail] = useState();
-   const [password, setPassword] = useState();
-   const [address, setAddress] = useState();
-   const [phone, setPhone] = useState();
+    const [username, setUsername] = useState();
+    const [first_name, setFirstName] = useState();
+    const [last_name, setLastName] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [address, setAddress] = useState();
+    const [phone, setPhone] = useState();
+    const [result, setResult] = useState()
+
+    console.log(result)
  
-   const handleSubmit = async e => {
-     e.preventDefault();
-     const token = await loginUser({
-       first_name,
-       last_name,
-       email,
-       password,
-       address,
-       phone
-     });
-     setToken(token);
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `Bearer ${process.env.REACT_APP_BEARER}`);
+    myHeaders.append("Content-Type", "application/json");
+
+    let raw = JSON.stringify({
+      email,
+      username,
+      first_name,
+      last_name,
+      address,
+      phone,
+      password,
+      confirmed: true
+    });
+
+    let requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+
+    console.log(requestOptions)
+
+    await fetch(`${process.env.REACT_APP_API_HOST}/api/users`, requestOptions)
+    .then(response => response.json())
+    .then(result => setResult(result))
+    .catch(error => console.log('error', error));
+
+    console.log(result)
+    // setToken(token);
+     
    }
+
  
    return(
      <div>
        <Header />
-       <div className="login-wrapper">
+       <div className="signUp-wrapper">
          <h1>Sign Up</h1>
          <form onSubmit={handleSubmit}>
+           <label>
+             <p>Username:</p>
+             <input type="username" onChange={e => setUsername(e.target.value)} />
+           </label>
            <label>
              <p>First Name:</p>
              <input type="first-name" onChange={e => setFirstName(e.target.value)} />
@@ -53,10 +78,6 @@ async function loginUser(credentials) {
              <input type="email" onChange={e => setEmail(e.target.value)} />
            </label>
            <label>
-             <p>Password</p>
-             <input type="password" onChange={e => setPassword(e.target.value)} />
-           </label>
-           <label>
              <p>Address</p>
              <input type="address" onChange={e => setAddress(e.target.value)} />
            </label>
@@ -64,8 +85,12 @@ async function loginUser(credentials) {
              <p>Phone Number</p>
              <input type="phone" onChange={e => setPhone(e.target.value)} />
            </label>
+           <label>
+             <p>Password</p>
+             <input type="password" onChange={e => setPassword(e.target.value)} />
+           </label>
            <div>
-             <button type="submit">Submit</button>
+             <button type='submit'>Submit</button>
            </div>
          </form>
        </div>

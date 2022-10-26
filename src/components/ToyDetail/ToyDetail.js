@@ -1,7 +1,6 @@
 import { useLocation } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-
 import './style.css'
 
 const ToyDetail = () => {
@@ -23,7 +22,7 @@ const ToyDetail = () => {
           <p>{category}</p>
         </div>
         <div className="rent-toy-container">
-          <p>How many days of rent?</p>
+          <h2>How many days of rent?</h2>
           <input type="radio" name="" id="" />
           <label htmlFor="">7 days</label>
           <input type="radio" name="" id="" />
@@ -33,7 +32,8 @@ const ToyDetail = () => {
           <button>Rent toy</button>
         </div>
       </div>
-      <div>
+      <div className="description">
+        <h2>Description:</h2>
         <p>{description}</p>
       </div>
       <Footer />

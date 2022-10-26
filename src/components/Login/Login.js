@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+import './style.css'
+
 
 
 async function loginUser(credentials) {

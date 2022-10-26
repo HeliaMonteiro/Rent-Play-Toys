@@ -25,8 +25,7 @@ const ToyItem = ({props}) => {
         <p>{name}</p>
       </div>
       <div className='text-container'>
-        <p>${price}</p>
-        <p> (7 days)</p>
+        <p>From ${price} per week</p>
       </div>
     </div>
   );
