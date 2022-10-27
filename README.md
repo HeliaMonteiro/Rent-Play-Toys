@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Rent & Play Toys
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is my General Assembly final project, I've built a page to rent toys. 
+Rent and Play Toys is an idea inspired in my loved nephew Vinicius who is overseas , because sometimes I would love to give him all cool toys he deserves.
 
-## Available Scripts
+But sometimes it isn't possible because some toys are very expensive and I, his mom and you for sure know that usually kids lose they interest in one specific toy really fast and just move on for another toy. 
 
-In the project directory, you can run:
+So the main idea of my page is to make some toys more accessible for those who wants to make they little ones happy, playing with an cool toy even for a short period of time.
 
-### `npm start`
+Rent & Play Toy has a variety of toys that usually are more expensive, most offer more than one use option providing more fun.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+💻 [Click here](https://rent-play-toys.surge.sh/) to see my project
 
-### `npm test`
+[![20221027-225030.jpg](https://i.postimg.cc/VkZS4Gh5/20221027-225030.jpg)](https://postimg.cc/dhdtVBwK)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## :bookmark_tabs: About
 
-### `npm run build`
+The main idea of this page is to make some toys more accessible.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Rent and Play Toys provides a lot toys categories, such as educational, activities and outside.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In the main page the user seen all toys available and unavailable, by clicking on toy it will show toy details: product description, category, recommended age to play, and items included.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To rent a toy users have to login or sign up, and after select any toy it will show days of rent options, after click on rent button the toy becomes unavailable, users can see their rent history and return a rented toy. 
+This is a full stack project, I'm using Strapi for back end content management and React and Javascript for my front end.
 
-### `npm run eject`
+## :nerd_face:  Cool tech  :dart:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ * Javascript
+ * React
+ * HTML 
+ * Strapi
+ * CSS
+## Bugs to fix  :hammer_and_wrench: :firecracker:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ * The user can rent a toy without select days of rent option.
+ * Search input is not working. 
+ * Header and Footer links are not working. 
+ * Some elements isn't responsive.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## :mending_heart: Lessons learnt
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ Organize this page idea to define MVP was hard. 
+ Keep things simple and do step by step. 
 
-## Learn More
+## :star_struck: Future features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ Make search input and all links work, create a payment form, and make it totally responsive.

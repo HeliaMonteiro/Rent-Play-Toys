@@ -72,9 +72,9 @@ const ToyDetail = () => {
       <div className="toy-detail-container">
         <div>
         { !token && (
-          <h2>Did you like it? Please login or register to rent this toy.</h2>
+          <h1>Did you like it? Please login or register to rent this toy.</h1>
         )}
-        { !status && (<h2>Product is currently unavailable.</h2>)}
+        { !status && (<h2 className="unavailable">Product is currently unavailable.</h2>)}
         
           <img src={image} alt="" />
           <div>
@@ -93,7 +93,7 @@ const ToyDetail = () => {
             <label htmlFor="">14 days</label>
             <input type="radio" name="rent-option" value="21" id="21" />
             <label htmlFor="">21 days</label>
-            <button onClick={rentToy}>Rent toy</button>
+            <button onClick={rentToy}>Rent Toy</button>
           </div>
         )}
 

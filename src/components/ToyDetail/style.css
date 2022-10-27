@@ -26,12 +26,27 @@
   padding: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
+ 
+h1 {
+  color: #50ba98;
+}
+
+.unavailable h2 {
+  color: #ff6d28
+}
+
+h2 {
+  color: #a403a4;
+}
+
+
+
 
 button {
   margin-top: 25px;;
 }
 
 .description {
-  text-align: center;
+  text-align: justify;
   margin: 25px;
  }
