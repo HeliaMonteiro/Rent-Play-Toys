@@ -97,12 +97,12 @@ const ToyDetail = () => {
           </div>
         )}
 
+
+      </div>
       <div className="description">
         <h2>Description:</h2>
         <div dangerouslySetInnerHTML={{__html: description}}/>
       </div>
-      </div>
-
      
       </div>
       <Footer />
