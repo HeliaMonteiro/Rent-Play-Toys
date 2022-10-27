@@ -26,6 +26,12 @@
 
 .search {
   align-self: center;
+  justify-self: center;
+}
+
+.search input{
+  height: 30px;
+  margin-right: 6px;
 }
 
 .header-logo {

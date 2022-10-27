@@ -12,6 +12,10 @@ const Header = ({token = undefined}) => {
     navigate('/')
   }
 
+  const navigateToRentPage = () => {
+    navigate('/rent')
+  }
+
   return (
     <div className='header-container'>
       <Link to="/">
@@ -32,11 +36,12 @@ const Header = ({token = undefined}) => {
 
         { headerToken ? (
           <div className='header-buttons'>
-          <button onClick={logout}>Logout</button>
+            <button onClick={navigateToRentPage}>Rent History</button>
+            <button onClick={logout}>Logout</button>
           </div>
         ) : (
           <div className='header-buttons'>
-          <Link to="/signUp"><button>Sign up</button>
+          <Link to="/signUp"><button className='button-51'>Sign up</button>
           </Link>
           <Link to="/login"><button>Log in</button>
           </Link>

@@ -5,7 +5,7 @@ import './style.css'
 const Information = () => {
   return (
     <div className='cover-image'>
-      <img src="https://i.postimg.cc/SN6sJjVd/20221026-231339-0000.png" alt="cover-img" />
+      <img src="https://i.postimg.cc/x8mb0Rhf/20221027-214226-0000.png" alt="cover-img" />
     </div>
   );
 }

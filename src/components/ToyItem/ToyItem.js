@@ -24,7 +24,11 @@ const ToyItem = ({props}) => {
         <p>{name}</p>
       </div>
       <div className='text-container'>
-        <p className='price'>From ${price} per week</p>
+        {status ? (
+          <p className='price'>From ${price} per week</p>
+        ): (
+          <p className='unavailable'>Product unavailable</p>
+        )}
       </div>
     </div>
   );
