@@ -4,7 +4,6 @@ import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import './style.css'
 
-
  
  export default function SignUp() {
     const [username, setUsername] = useState();
@@ -18,35 +17,35 @@ import './style.css'
 
     const navigate = useNavigate()
  
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+    const handleSubmit = async (e) => {
+      e.preventDefault()
 
-    let myHeaders = new Headers();
-    myHeaders.append("Authorization", `Bearer ${process.env.REACT_APP_BEARER}`);
-    myHeaders.append("Content-Type", "application/json");
+      let myHeaders = new Headers();
+      myHeaders.append("Authorization", `Bearer ${process.env.REACT_APP_BEARER}`);
+      myHeaders.append("Content-Type", "application/json");
 
-    let raw = JSON.stringify({
-      email,
-      username,
-      first_name,
-      last_name,
-      address,
-      phone,
-      password,
-      confirmed: true
-    });
+      let raw = JSON.stringify({
+        email,
+        username,
+        first_name,
+        last_name,
+        address,
+        phone,
+        password,
+        confirmed: true
+      });
 
-    let requestOptions = {
-      method: 'POST',
-      headers: myHeaders,
-      body: raw,
-      redirect: 'follow'
-    };
+      let requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
 
-    await fetch(`${process.env.REACT_APP_API_HOST}/api/users`, requestOptions)
-    .then(response => response.json())
-    .then(result => setResult(result))
-    .catch(error => console.log('error', error));
+      await fetch(`${process.env.REACT_APP_API_HOST}/api/users`, requestOptions)
+      .then(response => response.json())
+      .then(result => setResult(result))
+      .catch(error => console.log('error', error));
 
      if (result) {
         myHeaders = new Headers();

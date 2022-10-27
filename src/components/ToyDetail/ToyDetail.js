@@ -29,10 +29,10 @@ const ToyDetail = () => {
     });
 
     var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow'
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
     };
 
     const result = await fetch(`${process.env.REACT_APP_API_HOST}/api/rents`, requestOptions)
@@ -41,7 +41,6 @@ const ToyDetail = () => {
     .catch(error => console.log('error', error));
 
     if (result.data) {
-
 
       raw = JSON.stringify({
         data: {

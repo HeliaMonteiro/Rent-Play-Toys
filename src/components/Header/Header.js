@@ -48,7 +48,6 @@ const Header = ({token = undefined}) => {
           </div>
         )}
 
-
     </div>
   );
   
