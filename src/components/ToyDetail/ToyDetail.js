@@ -47,6 +47,7 @@ const ToyDetail = () => {
       <Header />
       <div className="toy-detail-container">
         <div>
+        <h2>Did you like it? Please login or register to rent this toy.</h2>
           <img src={image} alt="" />
           <div>
             <p>{brand}</p>
@@ -54,6 +55,7 @@ const ToyDetail = () => {
           </div>
           <p>{category}</p>
         </div>
+        
         { status && token && (
           <div className="rent-toy-container">
           <h2>How many days of rent?</h2>
@@ -69,7 +71,7 @@ const ToyDetail = () => {
       </div>
       <div className="description">
         <h2>Description:</h2>
-        <p>{description}</p>
+        <div dangerouslySetInnerHTML={{__html: description}}/>
       </div>
       <Footer />
     </div>
